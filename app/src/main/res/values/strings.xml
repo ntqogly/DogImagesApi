@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">DogImagesApi</string>
+    <string name="error_message">Включи инет, псина!</string>
 </resources>
