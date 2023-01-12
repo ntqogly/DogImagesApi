@@ -13,8 +13,10 @@ class MainViewModel : ViewModel() {
 
     private val compositeDisposable = CompositeDisposable()
     val isLoading = MutableLiveData<Boolean>()
+    val isLoadingRuslan = MutableLiveData<Boolean>()
     val isError = MutableLiveData<Boolean>()
     val dogImage = MutableLiveData<DogImage>()
+
 
 
     fun loadDogImage() {
@@ -22,10 +24,12 @@ class MainViewModel : ViewModel() {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe {
-                isLoading.value = true
+//                isLoading.value = true
+                isLoadingRuslan.value = true
             }
             .doAfterTerminate {
-                isLoading.value = false
+//                isLoading.value = false
+                isLoadingRuslan.value = false
             }
             .doOnError {
                 isError.value = true
